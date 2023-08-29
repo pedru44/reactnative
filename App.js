@@ -1,24 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import Card from './components/Card';
+import { Button, Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import Pag3 from './screens/Pag3';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Pag1 from './screens/Pag1';
+import Pag2 from './screens/Pag2';
+import { NavigationContainer } from '@react-navigation/native';
+import Arrays from './screens/Arrays';
+import Objeto from './screens/Objeto';
 
 
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <ScrollView style={{margin:10}}>
-      <Card></Card>
-      
-    <View style={styles.card}>
-      <Text style={styles.titulo}>Hello World!</Text>
-      <Text> isto é um parágrafo.</Text>
-      <Text style={styles.titulomenor}> isto é um parágrafo.</Text>
-      <Text> isto é um parágrafo.</Text>
-      <StatusBar style="auto" />
-    </View>
-    
-    </ScrollView>
-    
+    <>
+      <NavigationContainer>
+        <Stack.Navigator>
+        <Stack.Screen name="Objeto" component={Objeto}options={{title:"Objeto"}} />
+        <Stack.Screen name="Arrays" component={Arrays}options={{title:"Arrays"}} />
+          <Stack.Screen name="pagina1" component={Pag1}options={{title:"Página Principal"}} />
+          <Stack.Screen name="pagina2" component={Pag2}options={{title:"Página 2"}} />
+          <Stack.Screen name="pagina3" component={Pag3}options={{title:"Página 3"}} />
+        </Stack.Navigator>
+      </NavigationContainer>
+
+    </>
+
   );
 }
 
@@ -30,23 +37,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   card: {
-    borderColor: 'black',
-    bordeStyle: 'solid',
+    borderColor: 'red',
+    borderStyle: 'solid',
     borderWidth: 2,
+    marginBottom: 20
   },
   titulo: {
-    color: 'black',
+    color: 'white',
     fontSize: 30,
-    padding: 20,
+    padding: 10,
     marginBottom: 20,
     borderBottomColor: 'red',
-    bordeBottomStyle: 'solid',
-    bordeBottomWidth: 2,
+    borderStyle: 'solid',
+    borderBottomWidth: 2,
     textAlign: 'center',
-    backgroundColor: 'green',
-
+    backgroundColor: 'red',
   },
-  titulomenor: {
-    fontSize:10
+  paragrafo: {
+    fontSize: 20
   }
 });

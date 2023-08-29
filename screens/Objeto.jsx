@@ -13,11 +13,19 @@ const Objeto = () => {
     ]
     return (
         <>
-            {carros.map(item => (
+        {carros.map(item => (
+            <>
                 <Card>
-                    <Card.Cover Source>{{ url: item.foto }}/>
+                    <Card.Cover source={{url: item.foto}} />
+                    <Card.Content>
+                        <Text variant="tittleLarge">Marca: {item.marca}</Text>
+                        <Text variant="bodyMedium">Ano: {item.ano}</Text>
+                        <Text variant="bodyMedium">Cor: {item.cor}</Text>
+                    </Card.Content>
                 </Card>
-        </>
+       </>
+    ))}
+    </>
     )
 }
 

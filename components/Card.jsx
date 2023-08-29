@@ -1,23 +1,20 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native'
 
+const Card = (props) => {
 
-
-const Card = () => {
-  return (
-     <>
-     <Card></Card>
-        <View style={styles.card}>
-      <Text style={styles.titulo}>Hello World!</Text>
-      <Text> isto é um parágrafo.</Text>
-      <Text> isto é um parágrafo.</Text>
-      <Text> isto é um parágrafo.</Text>
-      </View>
-     </>
-  )
+    return (
+        <>
+            <View style={styles.card}>
+                <Text style={styles.titulo}>{ props.titulo }</Text>
+                {props.children}
+            </View>
+        </>
+    )
 }
 
 export default Card
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -26,24 +23,25 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     card: {
-      borderColor: 'black',
-      bordeStyle: 'solid',
+      borderColor: 'red',
+      borderStyle: 'solid',
       borderWidth: 2,
+      marginBottom: 20
     },
     titulo: {
-      color: 'black',
+      color: 'white',
       fontSize: 30,
-      padding: 20,
+      padding: 10,
       marginBottom: 20,
       borderBottomColor: 'red',
-      bordeBottomStyle: 'solid',
-      bordeBottomWidth: 2,
+      borderBottomStyle: 'solid',
+      borderBottomWidth: 2,
       textAlign: 'center',
-      backgroundColor: 'green',
-  
+      backgroundColor: 'red',
     },
-    titulomenor: {
-      fontSize:10
+    paragrafo: {
+      fontSize: 20
     }
   });
+  
   
